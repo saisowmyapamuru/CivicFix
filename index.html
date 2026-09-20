@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    CivicFix | Civic Issue Reporting
+  </title>
+
+
+  <!-- CivicFix CSS -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+
+  <div
+    class="brand"
+    onclick="showView('home')"
+  >
+
+    <div class="brand-mark">
+      CF
+    </div>
+
+    <div>
+
+      <strong>
+        CivicFix
+      </strong>
+
+      <small>
+        Report. Track. Resolve.
+      </small>
+
+    </div>
+
+  </div>
+
+
+  <nav>
+
+    <button
+      data-view="home"
+      onclick="showView('home')"
+    >
+      Home
+    </button>
+
+
+    <button
+      data-view="report"
+      onclick="showView('report')"
+    >
+      Report Issue
+    </button>
+
+
+    <button
+      data-view="track"
+      onclick="showView('track')"
+    >
+      Track Issues
+    </button>
+
+
+    <button
+      data-view="dashboard"
+      onclick="showView('dashboard')"
+    >
+      My Dashboard
+    </button>
+
+
+    <button
+      data-view="admin"
+      onclick="showView('admin')"
+    >
+      Admin Dashboard
+    </button>
+
+  </nav>
+
+
+  <div
+    id="rolePill"
+    class="role-pill"
+  >
+
+    <span id="roleDot"></span>
+
+    <span id="roleLabel">
+      Citizen
+    </span>
+
+  </div>
+
+
+</header>
+
+
+
+<main>
+
+
+  <!-- =========================
+       HOME
+  ========================== -->
+
+  <section
+    id="homeView"
+    class="view"
+  >
+
+
+    <div class="hero">
+
+
+      <div>
+
+
+        <span class="eyebrow">
+          SMART CIVIC REPORTING
+        </span>
+
+
+        <h1>
+
+          Make your city
+
+          <span>
+            better, one report at a time.
+          </span>
+
+        </h1>
+
+
+        <p>
+
+          Report civic issues, track progress,
+          and help local teams resolve problems faster.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+
+          <button
+            class="primary"
+            onclick="showView('report')"
+          >
+            Report an Issue
+          </button>
+
+
+          <button
+            class="secondary"
+            onclick="showView('track')"
+          >
+            Track Issues
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+      <!-- Decorative mini map -->
+
+      <div class="mini-map">
+
+        <div class="map-label">
+          CIVICFIX MAP
+        </div>
+
+        <div class="water"></div>
+
+        <div class="road a"></div>
+
+        <div class="road b"></div>
+
+        <i></i>
+        <i></i>
+        <i></i>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div
+      class="stats"
+      id="homeStats"
+    ></div>
+
+
+
+    <!-- CITY OVERVIEW -->
+
+    <div class="section-head">
+
+
+      <div>
+
+        <span class="eyebrow">
+          CITY OVERVIEW
+        </span>
+
+        <h2>
+          Issues around Tirupati
+        </h2>
+
+      </div>
+
+
+      <button
+        class="link-btn"
+        onclick="showView('track')"
+      >
+        View all →
+      </button>
+
+
+    </div>
+
+
+
+    <!-- REAL MAP + ISSUES -->
+
+    <div class="smart-grid">
+
+
+      <!-- REAL LEAFLET MAP -->
+
+      <div
+        id="issueMap"
+        class="issue-map"
+      >
+
+        <div
+          id="mapInfo"
+          class="map-info"
+        >
+
+          <b>
+            CivicFix Issue Map
+          </b>
+
+          <span>
+            Click any marker to view issue details.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- HOME ISSUE LIST -->
+
+      <div
+        id="homeIssues"
+        class="issue-list"
+      ></div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       REPORT ISSUE
+  ========================== -->
+
+  <section
+    id="reportView"
+    class="view hidden"
+  >
+
+
+    <div class="page-title">
+
+      <span class="eyebrow">
+        NEW REPORT
+      </span>
+
+
+      <h1>
+        Report a civic issue
+      </h1>
+
+
+      <p>
+        Tell us what needs attention.
+        Your report is saved locally for this demo.
+      </p>
+
+    </div>
+
+
+
+    <form
+      id="reportForm"
+      class="form-card"
+    >
+
+
+      <div class="form-grid">
+
+
+        <label>
+
+          Issue title
+
+          <input
+            id="issueTitle"
+            required
+            placeholder="e.g. Large pothole near bus stop"
+          >
+
+        </label>
+
+
+
+        <label>
+
+          Category
+
+          <select id="issueCategory">
+
+            <option>
+              Roads
+            </option>
+
+            <option>
+              Streetlights
+            </option>
+
+            <option>
+              Garbage
+            </option>
+
+            <option>
+              Water
+            </option>
+
+            <option>
+              Drainage
+            </option>
+
+            <option>
+              Public Safety
+            </option>
+
+            <option>
+              Other
+            </option>
+
+          </select>
+
+        </label>
+
+
+
+        <label>
+
+          Priority
+
+          <select id="issuePriority">
+
+            <option>
+              Medium
+            </option>
+
+            <option>
+              Low
+            </option>
+
+            <option>
+              High
+            </option>
+
+          </select>
+
+        </label>
+
+
+
+        <label>
+
+          Location
+
+          <input
+            id="issueLocation"
+            required
+            placeholder="Area / street / landmark"
+          >
+
+        </label>
+
+
+      </div>
+
+
+
+      <label>
+
+        Description
+
+        <textarea
+          id="issueDescription"
+          required
+          placeholder="Describe the issue..."
+        ></textarea>
+
+      </label>
+
+
+
+      <div class="location-row">
+
+
+        <button
+          type="button"
+          class="secondary"
+          onclick="useMyLocation()"
+        >
+
+          📍 Use my location
+
+        </button>
+
+
+        <span id="locationStatus">
+
+          Location can be entered manually.
+
+        </span>
+
+
+      </div>
+
+
+
+      <div class="form-grid">
+
+
+        <label>
+
+          Reporter name
+
+          <input
+            id="reporterName"
+            placeholder="Demo Citizen"
+          >
+
+        </label>
+
+
+
+        <label>
+
+          Contact
+
+          <input
+            id="reporterContact"
+            placeholder="Optional"
+          >
+
+        </label>
+
+
+
+        <label>
+
+          Evidence
+
+          <input
+            id="issueEvidence"
+            type="file"
+            accept="image/*"
+          >
+
+        </label>
+
+
+      </div>
+
+
+
+      <button
+        class="primary"
+        type="submit"
+      >
+
+        Submit Report
+
+      </button>
+
+
+
+      <div
+        id="formMessage"
+        class="form-message"
+      ></div>
+
+
+    </form>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       TRACK ISSUES
+  ========================== -->
+
+  <section
+    id="trackView"
+    class="view hidden"
+  >
+
+
+    <div class="page-title">
+
+
+      <span class="eyebrow">
+        TRACK
+      </span>
+
+
+      <h1>
+        Track Issues
+      </h1>
+
+
+      <p>
+        Search reports and see their current status.
+      </p>
+
+
+    </div>
+
+
+
+    <div class="filters">
+
+
+      <input
+        id="searchInput"
+        placeholder="Search issue ID, title or location..."
+      >
+
+
+      <select id="statusFilter">
+
+        <option value="all">
+          All statuses
+        </option>
+
+        <option>
+          Open
+        </option>
+
+        <option>
+          In Progress
+        </option>
+
+        <option>
+          Resolved
+        </option>
+
+      </select>
+
+
+      <select id="categoryFilter">
+
+        <option value="all">
+          All categories
+        </option>
+
+      </select>
+
+
+    </div>
+
+
+
+    <div
+      id="trackList"
+      class="issue-list large"
+    ></div>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       MY DASHBOARD
+  ========================== -->
+
+  <section
+    id="dashboardView"
+    class="view hidden"
+  >
+
+
+    <div class="page-title">
+
+
+      <span class="eyebrow">
+        MY DASHBOARD
+      </span>
+
+
+      <h1>
+        My civic activity
+      </h1>
+
+
+      <p>
+        Overview of reports created in this browser.
+      </p>
+
+
+    </div>
+
+
+
+    <div
+      class="stats"
+      id="myStats"
+    ></div>
+
+
+
+    <div
+      id="myIssues"
+      class="issue-list large"
+    ></div>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       ADMIN DASHBOARD
+  ========================== -->
+
+  <section
+    id="adminView"
+    class="view hidden"
+  >
+
+
+    <div class="page-title">
+
+
+      <span class="eyebrow">
+        ADMIN
+      </span>
+
+
+      <h1>
+        Admin Dashboard
+      </h1>
+
+
+      <p>
+        Review reported issues and update their status.
+      </p>
+
+
+    </div>
+
+
+
+    <div
+      class="stats"
+      id="adminStats"
+    ></div>
+
+
+
+    <div
+      id="adminList"
+      class="issue-list large"
+    ></div>
+
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     DETAILS MODAL
+========================= -->
+
+<div
+  id="modal"
+  class="modal hidden"
+>
+
+
+  <div class="modal-card">
+
+
+    <button
+      class="close"
+      onclick="closeModal()"
+    >
+      ×
+    </button>
+
+
+    <div
+      id="modalBody"
+    ></div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<footer>
+
+  CivicFix • Hackathon Demo •
+  Civic issue reporting and tracking
+
+</footer>
+
+
+
+<!-- =========================
+     LEAFLET JS
+========================= -->
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+
+<!-- =========================
+     CIVICFIX JS
+========================= -->
+
+<script
+  src="script.js"
+></script>
+
+
+</body>
+
+</html>

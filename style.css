@@ -1,0 +1,1233 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  background: #f6f8fb;
+  color: #182334;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+  height: 72px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5eaf0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 5%;
+  gap: 28px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 190px;
+  cursor: pointer;
+}
+
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 11px;
+
+  background: #1769e0;
+  color: #ffffff;
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 800;
+}
+
+
+.brand strong {
+  display: block;
+  font-size: 17px;
+}
+
+
+.brand small {
+  display: block;
+
+  color: #7a8492;
+  font-size: 10px;
+
+  margin-top: 2px;
+}
+
+
+nav {
+  display: flex;
+  gap: 4px;
+
+  flex: 1;
+  justify-content: center;
+}
+
+
+nav button {
+  border: 0;
+  background: transparent;
+
+  color: #596575;
+
+  padding: 10px 12px;
+
+  border-radius: 9px;
+
+  font-weight: 600;
+}
+
+
+nav button:hover,
+nav button.active {
+  background: #eef5ff;
+  color: #1769e0;
+}
+
+
+/* =========================
+   ROLE BADGE
+========================= */
+
+.role-pill {
+  padding: 8px 12px;
+
+  border: 1px solid #dce4ed;
+  border-radius: 20px;
+
+  background: #ffffff;
+  color: #596575;
+
+  font-weight: 700;
+  font-size: 13px;
+
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+
+.role-pill.admin {
+  background: #fff5e8;
+  color: #9a6500;
+}
+
+
+.role-pill span:first-child {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22a06b;
+}
+
+
+.role-pill.admin span:first-child {
+  background: #f0a000;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  max-width: 1180px;
+  margin: auto;
+
+  padding: 34px 22px 60px;
+}
+
+
+.view {
+  display: block;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  background: linear-gradient(
+    120deg,
+    #edf5ff,
+    #f9fbff
+  );
+
+  border: 1px solid #dce9f8;
+
+  border-radius: 24px;
+
+  padding: 44px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 35px;
+
+  align-items: center;
+}
+
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+
+  font-weight: 800;
+
+  color: #1769e0;
+}
+
+
+.hero h1,
+.page-title h1 {
+  font-size: 42px;
+  line-height: 1.08;
+
+  margin: 12px 0;
+}
+
+
+.hero h1 span {
+  color: #1769e0;
+}
+
+
+.hero p,
+.page-title p {
+  color: #687486;
+  line-height: 1.6;
+}
+
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary,
+.secondary {
+  border-radius: 10px;
+
+  padding: 12px 18px;
+
+  font-weight: 700;
+}
+
+
+.primary {
+  background: #1769e0;
+  color: #ffffff;
+
+  border: 0;
+}
+
+
+.primary:hover {
+  background: #0d58c7;
+}
+
+
+.secondary {
+  background: #ffffff;
+
+  border: 1px solid #d8e0e9;
+
+  color: #425064;
+}
+
+
+.secondary:hover {
+  border-color: #1769e0;
+  color: #1769e0;
+}
+
+
+/* =========================
+   MINI MAP
+========================= */
+
+.mini-map {
+  height: 260px;
+
+  background: #e7eef2;
+
+  border-radius: 18px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid #d5dfe6;
+}
+
+
+.mini-map .water {
+  position: absolute;
+
+  inset: -20% 45% 30% -20%;
+
+  background: #c8e9f4;
+
+  border-radius: 50%;
+
+  transform: rotate(-20deg);
+}
+
+
+.road {
+  position: absolute;
+
+  height: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #d3d9df;
+
+  transform: rotate(28deg);
+
+  left: -20%;
+
+  width: 150%;
+}
+
+
+.road.a {
+  top: 35%;
+}
+
+
+.road.b {
+  top: 65%;
+
+  transform: rotate(-20deg);
+}
+
+
+.mini-map i {
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: #1769e0;
+
+  border: 3px solid #ffffff;
+
+  box-shadow: 0 2px 8px #667;
+
+  left: 35%;
+  top: 42%;
+}
+
+
+.mini-map i:nth-of-type(2) {
+  left: 65%;
+  top: 28%;
+
+  background: #e59a25;
+}
+
+
+.mini-map i:nth-of-type(3) {
+  left: 57%;
+  top: 70%;
+
+  background: #22a06b;
+}
+
+
+.map-label {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 12px;
+  left: 12px;
+
+  background: #ffffff;
+
+  padding: 6px 9px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  color: #1769e0;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+
+  margin: 24px 0;
+}
+
+
+.stat {
+  background: #ffffff;
+
+  border: 1px solid #e4e9ef;
+
+  border-radius: 14px;
+
+  padding: 19px;
+}
+
+
+.stat b {
+  font-size: 27px;
+
+  display: block;
+}
+
+
+.stat span {
+  color: #778292;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   SECTION HEAD
+========================= */
+
+.section-head {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: end;
+
+  margin: 32px 0 14px;
+}
+
+
+.section-head h2 {
+  margin: 6px 0 0;
+}
+
+
+.link-btn {
+  background: none;
+
+  border: 0;
+
+  color: #1769e0;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   REAL LEAFLET MAP
+========================================================= */
+
+.smart-grid {
+  display: grid;
+
+  grid-template-columns: 1.3fr 0.7fr;
+
+  gap: 18px;
+}
+
+
+.issue-map {
+  height: 400px;
+
+  border: 1px solid #d3ddd2;
+
+  border-radius: 16px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #e8edf0;
+
+  z-index: 1;
+}
+
+
+/* Leaflet must fill our map box */
+
+.issue-map.leaflet-container,
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+
+  border-radius: 16px;
+}
+
+
+/* Make zoom buttons clean */
+
+.leaflet-control-zoom {
+  border: 0 !important;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+.leaflet-control-zoom a {
+  color: #253244 !important;
+
+  font-weight: 700;
+
+  background: #ffffff !important;
+}
+
+
+.leaflet-control-zoom a:hover {
+  background: #f0f5fb !important;
+}
+
+
+/* Map attribution */
+
+.leaflet-control-attribution {
+  font-size: 9px !important;
+
+  background: rgba(255,255,255,0.88) !important;
+}
+
+
+/* =========================
+   MAP INFO PANEL
+========================= */
+
+.map-info {
+  position: absolute;
+
+  z-index: 900;
+
+  right: 12px;
+  top: 12px;
+
+  width: 220px;
+
+  background: rgba(255,255,255,0.96);
+
+  border: 1px solid #dce3e9;
+
+  border-radius: 11px;
+
+  padding: 11px;
+
+  box-shadow:
+    0 4px 16px rgba(52,73,94,0.16);
+}
+
+
+.map-info b,
+.map-info span {
+  display: block;
+}
+
+
+.map-info b {
+  font-size: 13px;
+}
+
+
+.map-info span {
+  font-size: 11px;
+
+  color: #728091;
+
+  margin-top: 4px;
+}
+
+
+/* =========================
+   MAP LEGEND
+========================= */
+
+.map-legend {
+  background: rgba(255,255,255,0.95);
+
+  padding: 8px 10px;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.14);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+.map-legend div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+
+.legend-dot.open {
+  background: #d94a5b;
+}
+
+
+.legend-dot.progress {
+  background: #e49a1b;
+}
+
+
+.legend-dot.resolved {
+  background: #20a06a;
+}
+
+
+/* =========================
+   MAP POPUP
+========================= */
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+
+  min-width: 210px;
+
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+}
+
+
+.leaflet-issue-popup h3 {
+  margin: 4px 0 7px;
+
+  font-size: 14px;
+
+  color: #182334;
+}
+
+
+.popup-id {
+  color: #1769e0;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+
+.popup-location {
+  font-size: 11px;
+
+  color: #687486;
+
+  margin-bottom: 7px;
+}
+
+
+.popup-status {
+  display: inline-block;
+
+  padding: 4px 7px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+}
+
+
+.popup-status.open {
+  background: #fff0f2;
+  color: #d94a5b;
+}
+
+
+.popup-status.progress {
+  background: #fff5df;
+  color: #a66a00;
+}
+
+
+.popup-status.resolved {
+  background: #e9f8f0;
+  color: #168151;
+}
+
+
+.leaflet-issue-popup p {
+  margin: 6px 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #687486;
+}
+
+
+.popup-button {
+  border: 0;
+
+  background: #1769e0;
+
+  color: #ffffff;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  margin-top: 5px;
+}
+
+
+.popup-button:hover {
+  background: #0d58c7;
+}
+
+
+/* Map loading/error */
+
+.map-error {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  color: #536173;
+
+  background: #eef2f5;
+}
+
+
+.map-error span {
+  font-size: 12px;
+}
+
+
+/* =========================
+   ISSUE CARDS
+========================= */
+
+.issue-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.issue-card {
+  background: #ffffff;
+
+  border: 1px solid #e3e8ee;
+
+  border-radius: 13px;
+
+  padding: 15px;
+}
+
+
+.issue-card .top {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+
+.issue-card h3 {
+  margin: 0 0 5px;
+
+  font-size: 15px;
+}
+
+
+.meta {
+  font-size: 12px;
+
+  color: #758090;
+
+  line-height: 1.6;
+}
+
+
+.badge {
+  padding: 5px 8px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.badge.open {
+  background: #fff0f2;
+
+  color: #d94a5b;
+}
+
+
+.badge.progress {
+  background: #fff5df;
+
+  color: #a66a00;
+}
+
+
+.badge.resolved {
+  background: #e9f8f0;
+
+  color: #168151;
+}
+
+
+.issue-card button {
+  margin-top: 10px;
+}
+
+
+.large .issue-card {
+  padding: 18px;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+  margin: 10px 0 24px;
+}
+
+
+.page-title h1 {
+  font-size: 34px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-card {
+  background: #ffffff;
+
+  border: 1px solid #e1e7ee;
+
+  border-radius: 16px;
+
+  padding: 25px;
+}
+
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+
+.form-grid label,
+.form-card > label {
+  display: block;
+
+  color: #586577;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.form-card input,
+.form-card select,
+.form-card textarea,
+.filters input,
+.filters select {
+  width: 100%;
+
+  margin-top: 7px;
+
+  border: 1px solid #d7dfe8;
+
+  border-radius: 9px;
+
+  padding: 11px;
+
+  background: #ffffff;
+
+  color: #253244;
+
+  outline: none;
+}
+
+
+.form-card input:focus,
+.form-card textarea:focus,
+.filters input:focus {
+  border-color: #1769e0;
+}
+
+
+.form-card textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+
+.location-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 15px 0;
+
+  color: #748092;
+
+  font-size: 12px;
+}
+
+
+.form-message {
+  margin-top: 12px;
+
+  font-weight: 700;
+
+  color: #168151;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+  padding: 35px;
+
+  background: #ffffff;
+
+  border: 1px dashed #ccd5df;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  color: #778292;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: #18233488;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  z-index: 5000;
+}
+
+
+.modal-card {
+  width: min(560px, 100%);
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  position: relative;
+
+  max-height: 85vh;
+
+  overflow: auto;
+}
+
+
+.close {
+  position: absolute;
+
+  right: 13px;
+  top: 10px;
+
+  border: 0;
+
+  background: #eef2f6;
+
+  border-radius: 50%;
+
+  width: 32px;
+  height: 32px;
+
+  font-size: 22px;
+}
+
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin: 15px 0;
+}
+
+
+.detail-grid div {
+  background: #f7f9fb;
+
+  padding: 12px;
+
+  border-radius: 9px;
+}
+
+
+.detail-grid small {
+  display: block;
+
+  color: #7c8795;
+}
+
+
+.detail-grid b {
+  display: block;
+
+  margin-top: 3px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+
+  color: #8a94a1;
+
+  font-size: 12px;
+
+  padding: 20px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .topbar {
+    height: auto;
+
+    padding: 12px 16px;
+
+    flex-wrap: wrap;
+  }
+
+
+  .brand {
+    min-width: 0;
+  }
+
+
+  nav {
+    order: 3;
+
+    overflow: auto;
+
+    justify-content: flex-start;
+
+    width: 100%;
+  }
+
+
+  .hero,
+  .smart-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .form-grid,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hero {
+    padding: 28px;
+  }
+
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  main {
+    padding: 20px 14px 45px;
+  }
+
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .issue-map {
+    height: 330px;
+  }
+
+
+  .issue-map.leaflet-container,
+  .leaflet-container {
+    min-height: 330px;
+  }
+
+
+  .map-info {
+    width: 175px;
+  }
+
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+}
