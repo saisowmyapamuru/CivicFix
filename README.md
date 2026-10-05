@@ -70,5 +70,3 @@ CivicFix/
 ├── style.css
 ├── script.js
 └── README.md
-Developed By
-     -Sai Sowmya Pamuru
